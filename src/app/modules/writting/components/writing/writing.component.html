@@ -1,0 +1,26 @@
+<div class="container pt-2 pb-4 writting-page">
+  <form>
+    <label for="exampleFormControlTextarea1" class="textarea-title"
+      >Only words longer than 2 sybmols are counted</label
+    >
+    <textarea
+      class="form-control"
+      id="exampleFormControlTextarea1"
+      rows="10"
+      name="textareaInput"
+      placeholder="Please, type here"
+      [(ngModel)]="textareaContent"
+      (ngModelChange)="onTextareaChange($event)"
+    ></textarea>
+  </form>
+
+  <div
+    class="counter"
+    [ngClass]="{
+      'text-danger': wordsCounted < WORDS_MIN_LIMIT,
+      'text-success': wordsCounted >= WORDS_MIN_LIMIT
+    }"
+  >
+    Words: {{ wordsCounted }} / {{ WORDS_MIN_LIMIT }}
+  </div>
+</div>
